@@ -349,7 +349,7 @@ int main(int argc, char *argv[])
 	char alivetmp[255] = {0,};
 	strcpy(alivetmp, mac_address);
 	escapeStr(alivetmp);
-	sprintf(alivecmd, "alive:%s", alivetmp);
+	sprintf(alivecmd, "{\"alive\":\"%s\"}", alivetmp);
 	mosquitto_publish(mosq, NULL, topic.ping, strlen(alivecmd), alivecmd, 1, NULL);
 
     if(!strcmp(nvram_bufget(NVRAM_ID, "state"), "2")) {
